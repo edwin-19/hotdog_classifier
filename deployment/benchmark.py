@@ -22,10 +22,11 @@ async def get_all(images):
         
     results = await asyncio.gather(*requests)
     return results
-    
-start_time = time.time()
-images = glob.glob('data/test/**/*.jpg', recursive=True)
-asyncio.run(get_all(images))
-end_time = time.time() - start_time
 
-print('Took: {} for: {} images'.format(round(end_time, 4), len(images)))
+if __name__ == "__main__":
+    start_time = time.time()
+    images = glob.glob('data/test/**/*.jpg', recursive=True)
+    asyncio.run(get_all(images))
+    end_time = time.time() - start_time
+
+    print('Took: {} for: {} images'.format(round(end_time, 4), len(images)))
