@@ -11,4 +11,5 @@ This repo is a test to build an END TO END pipeline deep learning for tensorflow
 - [ ] Use keras tuner for hyperparam tuning
 - [ ] Use hiplot to visualize training
 - [ ] Convert model to tflite and port to android
-- [ ] Write web code for deployment
+- [x] Write web code for deployment
+- [x] Write benchmark code for deployment
