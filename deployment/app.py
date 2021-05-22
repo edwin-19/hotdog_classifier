@@ -24,13 +24,14 @@ labels = {
 @app.post('/image')
 async def get_index(file: UploadFile = File(...)):
     contents = await file.read()
-    img_buffer = np.frombuffer(contents, dtype=np.uint8)
-    img = turbojpeg.decode(img_buffer)
+    # img_buffer = np.frombuffer(contents, dtype=np.uint8)
+    # img = turbojpeg.decode(img_buffer)
     # img = cv2.imdecode(img_buffer, cv2.IMREAD_COLOR)
     
+    img = tf.io.decode_jpeg(contents)
     img_pre = tf.expand_dims(img, axis=0)
     img_pre = preproc(img_pre)['output_0']
-    preds = infer(img_pre)['outputs']
+    preds = tf.squeeze(infer(img_pre)['outputs'], axis=0)
     
     return {
         'prediction': labels[preds.numpy().argmax()],
