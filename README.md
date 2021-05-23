@@ -5,6 +5,11 @@ This repo is a test to build an END TO END pipeline deep learning for tensorflow
     - Keras tuner
     - TF Dataset
 
+## Dataset
+Dataset used was from kaggle, which is just a subset of food 101 dataset
+
+You download [here](https://www.kaggle.com/dansbecker/hot-dog-not-hot-dog)
+
 ## TODO
 - [x] Compare sequence to tf dataset api
 - [x] Write using the subclass api for model
